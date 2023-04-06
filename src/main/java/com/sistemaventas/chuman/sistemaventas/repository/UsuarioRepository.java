@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 import com.sistemaventas.chuman.sistemaventas.entity.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-    public Optional<Usuario> findByUser(String user);
 }
