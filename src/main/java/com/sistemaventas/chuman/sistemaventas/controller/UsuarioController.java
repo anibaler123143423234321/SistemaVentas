@@ -2,6 +2,7 @@ package com.sistemaventas.chuman.sistemaventas.controller;
 
 import com.sistemaventas.chuman.sistemaventas.dto.UsuarioDto;
 import com.sistemaventas.chuman.sistemaventas.dto.UsuarioFilter;
+import com.sistemaventas.chuman.sistemaventas.entity.Usuario;
 import com.sistemaventas.chuman.sistemaventas.exceptions.RecursoNoExisteException;
 import java.util.List;
 import org.springframework.http.MediaType;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +28,7 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UsuarioDto>> findAll(UsuarioFilter filter){
+    public ResponseEntity<List<UsuarioDto>> findAll(@RequestBody UsuarioFilter filter){
         List<UsuarioDto> usuario = service.findAll(filter);
         return ResponseEntity.ok(usuario);
     }
