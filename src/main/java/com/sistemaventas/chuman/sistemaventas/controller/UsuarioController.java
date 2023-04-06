@@ -1,7 +1,9 @@
 package com.sistemaventas.chuman.sistemaventas.controller;
 
 import com.sistemaventas.chuman.sistemaventas.dto.UsuarioDto;
+import com.sistemaventas.chuman.sistemaventas.dto.UsuarioFilter;
 import com.sistemaventas.chuman.sistemaventas.exceptions.RecursoNoExisteException;
+import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,6 +26,11 @@ public class UsuarioController {
         this.service = service;
     }
 
+    @GetMapping
+    public ResponseEntity<List<UsuarioDto>> findAll(UsuarioFilter filter){
+        List<UsuarioDto> usuario = service.findAll(filter);
+        return ResponseEntity.ok(usuario);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioDto> getById(@PathVariable() Long id) {
         UsuarioDto usuario = null;
