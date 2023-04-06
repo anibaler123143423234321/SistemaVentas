@@ -1,35 +1,22 @@
-package com.vichayal.vichayalapirest.converters;
+package com.sistemaventas.chuman.sistemaventas.converters;
 
-import com.vichayal.vichayalapirest.dtos.SignupRequestDTO;
-import com.vichayal.vichayalapirest.dtos.UsuarioDTO;
-import com.vichayal.vichayalapirest.entity.Usuario;
+import com.sistemaventas.chuman.sistemaventas.dto.SignupRequestDTO;
+import com.sistemaventas.chuman.sistemaventas.dto.UsuarioDto;
+import com.sistemaventas.chuman.sistemaventas.entity.Usuario;
 
-public class UsuarioConverter extends AbstractConverter<Usuario, UsuarioDTO> {
+public class UsuarioConverter extends AbstractConverter<Usuario, UsuarioDto> {
 
 	@Override
-	public UsuarioDTO fromEntity(Usuario entity) {
-		if (entity==null) return null;
-		return UsuarioDTO.builder()
-				.id(entity.getId())
-				.email(entity.getUser())
-				.activo(entity.getActivo())
-				.build();
+	public UsuarioDto fromEntity(Usuario entity) {
+
 	}
 
 	@Override
-	public Usuario fromDTO(UsuarioDTO dto) {
-		if (dto==null) return null;
-		return Usuario.builder()
-				.id(dto.getId())
-				.user(dto.getEmail())
-				.activo(dto.getActivo())
-				.build();
+	public Usuario fromDTO(UsuarioDto dto) {
+
 	}
 	
 	public Usuario signup(SignupRequestDTO dto) {
-		return Usuario.builder()
-				.user(dto.getUser())
-				.password(dto.getPassword())
-				.build();
+
 	}
 }

@@ -1,4 +1,4 @@
-package com.vichayal.vichayalapirest.converters;
+package com.sistemaventas.chuman.sistemaventas.converters;
 import java.util.List;
 import java.util.stream.Collectors;
 
