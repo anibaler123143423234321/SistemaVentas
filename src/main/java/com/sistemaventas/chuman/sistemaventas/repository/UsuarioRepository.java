@@ -11,5 +11,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>, JpaSpecificationExecutor<Usuario> {
   @Query("SELECT u FROM Usuario u WHERE u.id = :id")
-  Usuario findById(@Param("id") Long id);
+  Usuario findById(@Param("id") Integer id);
 }

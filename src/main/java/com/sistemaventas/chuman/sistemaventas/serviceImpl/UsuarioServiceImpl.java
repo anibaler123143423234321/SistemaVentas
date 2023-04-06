@@ -8,7 +8,6 @@ import com.sistemaventas.chuman.sistemaventas.repository.UsuarioRepository;
 import com.sistemaventas.chuman.sistemaventas.service.UsuarioService;
 import com.sistemaventas.chuman.sistemaventas.spec.UsuarioSpec;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,8 @@ public class UsuarioServiceImpl implements UsuarioService {
   private final UsuarioMapper mapper;
   private final UsuarioSpec spec;
 
-  public UsuarioServiceImpl(UsuarioRepository repository, UsuarioMapper mapper, UsuarioSpec spec) {
+  public UsuarioServiceImpl(UsuarioRepository repository, UsuarioMapper mapper,
+      UsuarioSpec spec) {
     this.repository = repository;
     this.mapper = mapper;
     this.spec = spec;
@@ -30,7 +30,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @Override
   public UsuarioDto findById(Long id) {
-    return mapper.toDto(repository.findById(id));
+    Usuario usuario = repository.findById(id.intValue());
+    return mapper.toDto(usuario);
   }
 
   @Override
@@ -40,7 +41,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @Override
   public List<UsuarioDto> findAll(UsuarioFilter filter) {
-    return null;
+    return mapper.toDto(repository.findAll(spec.filtrar(filter)));
   }
 
   @Override

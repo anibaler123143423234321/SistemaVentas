@@ -15,7 +15,7 @@ import com.sistemaventas.chuman.sistemaventas.service.UsuarioService;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/api/usuario-publica", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/usuario", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UsuarioController {
 
     private final UsuarioService service;
