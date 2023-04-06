@@ -15,7 +15,7 @@ import com.sistemaventas.chuman.sistemaventas.service.UsuarioService;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/api/usuario", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "api/usuario", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UsuarioController {
 
     private final UsuarioService service;
@@ -25,7 +25,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDto> getById(@PathVariable(required = false) Long id) {
+    public ResponseEntity<UsuarioDto> getById(@PathVariable() Long id) {
         UsuarioDto usuario = null;
         if (id != null) {
             usuario = service.findById(id);
