@@ -2,7 +2,6 @@ package com.sistemaventas.chuman.sistemaventas.service;
 
 import com.sistemaventas.chuman.sistemaventas.dto.UsuarioDto;
 import com.sistemaventas.chuman.sistemaventas.dto.UsuarioFilter;
-import com.sistemaventas.chuman.sistemaventas.entity.Usuario;
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

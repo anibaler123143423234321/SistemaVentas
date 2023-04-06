@@ -30,7 +30,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @Override
   public UsuarioDto findById(Long id) {
-    Usuario usuario = repository.findById(id.intValue());
+    Usuario usuario = repository.findUserById(id);
     return mapper.toDto(usuario);
   }
 
