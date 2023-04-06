@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sistemaventas.chuman.sistemaventas.service.UsuarioService;
 
-
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/api/usuario", produces = MediaType.APPLICATION_JSON_VALUE)
