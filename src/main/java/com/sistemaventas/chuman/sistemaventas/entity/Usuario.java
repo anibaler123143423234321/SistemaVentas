@@ -5,10 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public static final String U_ESTADO = "vigencia";
-
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
