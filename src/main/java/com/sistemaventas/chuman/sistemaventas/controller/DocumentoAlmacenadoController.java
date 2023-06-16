@@ -4,6 +4,7 @@ import com.sistemaventas.chuman.sistemaventas.entity.DocumentoAlmacenado;
 import com.sistemaventas.chuman.sistemaventas.service.DocumentoAlmacenadoService;
 import com.sistemaventas.chuman.sistemaventas.utils.GenericResponse;
 import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,7 @@ public class DocumentoAlmacenadoController {
         return service.downloadByFileName(fileName, request);
     }
 
-    @PostMapping
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public GenericResponse save(@ModelAttribute DocumentoAlmacenado obj) {
         return service.save(obj);
     }

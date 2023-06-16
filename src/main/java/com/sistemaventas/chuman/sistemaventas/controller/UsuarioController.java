@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
-
 @RestController
 @RequestMapping("api/usuario")
 public class UsuarioController {
@@ -17,16 +16,14 @@ public class UsuarioController {
     public UsuarioController(UsuarioService service) {
         this.service = service;
     }
+
     @RequestMapping(value="/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public GenericResponse<Usuario> login(HttpServletRequest request){
-        String email = request.getParameter("email");
-        String contrasenia = request.getParameter("pass");
+    public GenericResponse<Usuario> login(@RequestParam("email") String email, @RequestParam("pass") String contrasenia){
         return this.service.login(email, contrasenia);
     }
-    @PostMapping
+
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public GenericResponse save(@RequestBody Usuario u){
         return this.service.guardarUsuario(u);
     }
-
 }
-
