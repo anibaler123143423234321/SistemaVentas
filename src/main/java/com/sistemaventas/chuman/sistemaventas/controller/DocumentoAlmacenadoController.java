@@ -19,17 +19,18 @@ public class DocumentoAlmacenadoController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public GenericResponse list() {
         return service.list();
+
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public GenericResponse find(@PathVariable Long id) {
         return null;
     }
 
-    @GetMapping("/download/{fileName}")
+    @GetMapping(value = "/download/{fileName}")
     public ResponseEntity<Resource> download(@PathVariable String fileName, HttpServletRequest request) {
         return service.downloadByFileName(fileName, request);
     }
@@ -42,7 +43,7 @@ public class DocumentoAlmacenadoController {
     public GenericResponse update(Long aLong, DocumentoAlmacenado obj) {
         return null;
     }
-    
+
     public GenericResponse delete(Long aLong) {
         return null;
     }
