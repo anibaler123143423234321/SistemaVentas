@@ -113,7 +113,7 @@ public class PedidoService {
       try {
         final Pedido pedido = optPedido.get();
         final File file = ResourceUtils.getFile("classpath:exportInvoice.jasper");
-        final File imgLogo = ResourceUtils.getFile("classpath:images/logoCevicheria.png");
+        final File imgLogo = ResourceUtils.getFile("classpath:images/logoJob2.png");
         final JasperReport report = (JasperReport) JRLoader.loadObject(file);
 
         final HashMap<String, Object> parameters = new HashMap<>();
